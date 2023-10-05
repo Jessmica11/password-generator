@@ -10,60 +10,40 @@ function writePassword() {
   passwordText.value = password;
 }
 
-//define generatePassword() 
-
 // Add event listener to generate button (js waits for user clicks, then generates)
 generateBtn.addEventListener("click", writePassword);
 
-//TODO MY CODE BELOW//
+//TODO: MY CODE BELOW//
+// Define password requirements as variables
+var uppercaseABC = "ABCDEFGHIJKLMNOPQRSTUVWXZ";
+var lowercaseABC ="abcdefghijklmnopqrstuvwxyz";
+var specialSymbols ="!@#$%^&*()?.<\>|=+:;,[-_]";
+var numbers ="0123456789";
+var multiSelect =[uppercaseABC + lowercaseABC + numbers + specialSymbols];
 
-// Generate window pop-up prompts for different password requirements
-// Requirement 1: Ask user for # of characters for password
-var howLong = prompt("How long of a password would you like? (please choose between 8 and 128 characters)"); 
-alert("Your password will be " + howLong + " characters long");
+// Confirm prompts for the user to answer aka user choices for password
+var howLong = prompt("How long would you like your password to be? Please choose between 8-128 characters");
+// In case user chooses number outside of scope provided
+if (howLong < 8 || howLong > 128) {
+  alert("Your password does not meet the criteria");
+  var howLong = prompt("Password must be between 8 and 128 characters in length.");
+}
+var uppercase = confirm("Click OK if you would like numbers in your password");
+var lowercase = confirm("Click OK if you would like lowercase letters in your password");
+var specialSymbols = confirm("Click OK if you would like special symbols in your password");
+var numbers = confirm("Click OK if you would like numbers in your password");
 
-
-// Requirements: numbers? uppercase letters? lowercase letters? symbols/special characters?
-// Should be able to loop these prompts
-
-// Define your variables
-var numbers = [0,1,2,3,4,5,6,7,8,9];
-var lowercaseABC = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-var uppercaseABC = [lowercaseABC.toUppercase()];
-var symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "?"];
-
-
-
-var  passwordChoices = [];
-        while (true)
-        {        
-        var add = window.confirm("Would you like " + );
-        if (add === true)
-        {
-        employee = prompt("Please enter and employee name");
-        nameArr.push(employee);
-        ++index;
-        }
-        else
-            break;
-        }
-        window.alert(nameArr[0]);
-        console.log(nameArr);
-
-var userChoices = [];
-var size = howLong; //Let user define the length of the password
-
-for(var i=0; i<size; i++) {
-	
-	//Taking Input from user
-	inputArray[i] = confirm('Would you like ' + (i+1) + " in your password?");
+//In case user doesn't pick any option we need an error alert
+if (uppercase === false && lowercase === false && specialSymbols === false && numbers === false) {
+  alert("You must choose at least 1 requirement to generate a password. Please refresh to start over");
 }
 
-//Print the array in the console.
-console.log(inputArray);
-
-// For generating a randomized password (loop through each requirement)
-for (var i = 0; i < howLong; i++) {
-        var pickChoices = passwordChoices[Math.floor(Math.random() * passwordChoices.length)];
-        password.push(pickChoices);
+// Need to define the generatePassword() function for each requirement's options
+function generatePassword() {
+    password = "";
+    password += uppercase[Math.floor(Math.random() * uppercase.length)];
+    password += lowercase[Math.floor(Math.random() * lowercase.length)];
+    password += numbers[Math.floor(Math.random() * numbers.length)];
+    password += specialSymbols[Math.floor(Math.random() * specialSymbols.length)];
+    generatePassword.length = howLong;
 }
