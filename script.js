@@ -68,6 +68,7 @@ function generatePassword() {
     generatePassword()
     }
     // first if statement that uses user input prompts to determine choices
+    // got help from instructor with this section, prior code was overly complicated
   
     if(yesUppercase) {
         possibleCharacters = possibleCharacters.concat(uppercaseABC);
@@ -97,5 +98,4 @@ function generatePassword() {
     }
     console.log(password);
     return password;
-
 }
