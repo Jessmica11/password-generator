@@ -34,7 +34,7 @@ var userChoices;
 function randomIndex (limit) {
         return Math.floor(Math.random() * limit);
 }
-var betweenZeroAndFive = randomIndex(5);
+//var betweenZeroAndFive = randomIndex(5);
 
 // actual function that will run through all the options
 function generatePassword() {
