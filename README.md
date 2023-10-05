@@ -2,8 +2,9 @@
 
 ## My Password Generator
 
-GitHub Page:
-Repo Link:
+GitHub Page: https://jessmica11.github.io/password-generator/
+
+Repo Link: https://github.com/Jessmica11/password-generator
 
 ## Your Task
 
